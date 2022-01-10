@@ -15,7 +15,7 @@ const addItems = require('../assets/icons/add-list-items.png');
 const createBill = require('../assets/icons/create-bill.png');
 const wallet = require('../assets/icons/wallet.png');
 const addMoney = require('../assets/icons/icons8-add-dollar-50.png');
-
+const notifcation = require('../assets/icons/notification.png');
 
 export default {
   menu,
@@ -34,5 +34,6 @@ export default {
   addItems,
   createBill,
   wallet,
-  addMoney
+  addMoney,
+  notifcation
 };

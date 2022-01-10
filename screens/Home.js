@@ -11,6 +11,7 @@ import {
 import {COLORS, icons, SIZES, FONTS} from '../constants';
 
 const Home = () => {
+
   const featuresData = [
     {
       id: 1,
@@ -53,29 +54,34 @@ const Home = () => {
     },
   ];
 
+  const renderHeader = () => {
+    return (
+      <View
+        style={{
+          flex: 1,
+          justifyContent: 'center',
+          alignItems: 'center',
+          height: 100,
+          marginVertical: 10,
+          borderRadius: 20,
+          backgroundColor: COLORS.lime,
+        }}>
 
-const renderHeader = () => {
-  return (
-    <View style={{
-      flex: 1,
-      height: 100,
-      marginVertical: 10,
-      borderRadius: 20,
-      backgroundColor: COLORS.lime,
-    }}>
-      <Text>renderHeader</Text>
-    </View>
-  )
-}
+        <Image
+        source={{uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfBJS0q2ic-kebF3uQrjD2p7nMWjL_OLFzqw&usqp=CAU'}}
+        resizeMode="cover"
+        style={{width:'100%', height:'100%', borderRadius: 20,
+      }}
+        />
+        <Text
+        style={{fontSize:30, fontWeight: '700', color: COLORS.white, position: 'absolute'}}
+        >Community Block</Text>
+      </View>
+    );
+  };
 
   const renderPromos = () => {
-
-    const HeaderComponent = () => (
-      <View>
-        {renderHeader()}
-      </View>
-    )
-
+    const HeaderComponent = () => <View>{renderHeader()}</View>;
 
     const renderItem = ({item}) => (
       <TouchableOpacity
@@ -98,30 +104,26 @@ const renderHeader = () => {
               width: '100%',
               height: '100%',
               borderTopLeftRadius: 20,
-              borderTopRightRadius: 20
+              borderTopRightRadius: 20,
             }}
           />
         </View>
-        <View 
-            style={{
-              padding: SIZES.padding,
-              backgroundColor: COLORS.lightGrey,
-              borderBottomLeftRadius: 20,
-              borderBottomRightRadius: 20
-            }}>
-            <Text 
-              style={{fontSize: 16, fontWeight: '600'}}
-            >{item.title}</Text>
-            <Text
-            style={{fontSize: 12}}
-            >{item.description}</Text>
+        <View
+          style={{
+            padding: SIZES.padding,
+            backgroundColor: COLORS.lightGrey,
+            borderBottomLeftRadius: 20,
+            borderBottomRightRadius: 20,
+          }}>
+          <Text style={{fontSize: 16, fontWeight: '600'}}>{item.title}</Text>
+          <Text style={{fontSize: 12}}>{item.description}</Text>
         </View>
       </TouchableOpacity>
     );
 
     return (
       <FlatList
-      ListHeaderComponent={HeaderComponent}
+        ListHeaderComponent={HeaderComponent}
         contentContainerStyle={{paddingHorizontal: SIZES.padding * 3}}
         numColumns={2}
         columnWrapperStyle={{justifyContent: 'space-between'}}

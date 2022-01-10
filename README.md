@@ -1,2 +1,4 @@
-# React Native Wallet App with QR Code Generator / Scanner
+# React Native Wallet App 
+### Features including 
 
+* QR Code Generator / Scanner
