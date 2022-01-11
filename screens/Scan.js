@@ -1,9 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Linking } from 'react-native';
 
 import { RNCamera } from 'react-native-camera';
+import { COLORS } from '../constants';
 
 const Scan = () => {
+
+  const [barCodeScanned, setBarCodeScanned] = useState('')
   // const onSuccess = e => {
   //   console.log(e.data)
   //   Linking.openURL(e.data).catch(err =>
@@ -72,8 +75,17 @@ const Scan = () => {
             borderRadius: 18,
             opacity: 0.6
           }}
-        ></View>
-
+        >
+         { barCodeScanned ?
+          <Text
+             style={{
+               fontSize: 17,
+                fontWeight: "700",
+                backgroundColor: COLORS.white
+            }}
+        >{ barCodeScanned }</Text> :
+      null }
+        </View>
       </View>
     )
   }
@@ -176,7 +188,7 @@ const Scan = () => {
   };
 
   const onBarCodeRead = result => {
-    console.log(result.data)
+    setBarCodeScanned(result.data)
   }
 
   return (

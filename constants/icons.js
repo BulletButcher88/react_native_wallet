@@ -35,5 +35,5 @@ export default {
   createBill,
   wallet,
   addMoney,
-  notifcation
+  notifcation,
 };

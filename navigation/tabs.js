@@ -164,7 +164,7 @@ const Tabs = () => {
         }}
       />
       <Tab.Screen
-        name="User"
+        name="Profile"
         component={Profile}
         options={{
           tabBarIcon: ({ focused }) => (
