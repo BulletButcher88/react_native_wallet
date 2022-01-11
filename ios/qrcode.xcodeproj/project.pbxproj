@@ -42,12 +42,12 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = qrcode/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = qrcode/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = qrcode/main.m; sourceTree = "<group>"; };
-		1DA21D124D87453783CE7345 /* barcode.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = barcode.png; path = ../assets/icons/barcode.png; sourceTree = "<group>"; };
-		3AA6D37155D54078849A727C /* info.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = info.png; path = ../assets/icons/info.png; sourceTree = "<group>"; };
-		401765F6C3294434B9A290C2 /* cancel.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = cancel.png; path = ../assets/icons/cancel.png; sourceTree = "<group>"; };
-		60058E42D7914C279DAF17A6 /* smartphone.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = smartphone.png; path = ../assets/icons/smartphone.png; sourceTree = "<group>"; };
+		1DA21D124D87453783CE7345 /* barcode.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = barcode.png; path = ../assets/icons/barcode.png; sourceTree = "<group>"; };
+		3AA6D37155D54078849A727C /* info.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = info.png; path = ../assets/icons/info.png; sourceTree = "<group>"; };
+		401765F6C3294434B9A290C2 /* cancel.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = cancel.png; path = ../assets/icons/cancel.png; sourceTree = "<group>"; };
+		60058E42D7914C279DAF17A6 /* smartphone.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = smartphone.png; path = ../assets/icons/smartphone.png; sourceTree = "<group>"; };
 		6DA0616771C83AFBA845F37E /* libPods-qrcode-qrcodeTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-qrcode-qrcodeTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6DFC34AE60EC4B2F9983F535 /* menu.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = menu.png; path = ../assets/icons/menu.png; sourceTree = "<group>"; };
+		6DFC34AE60EC4B2F9983F535 /* menu.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = menu.png; path = ../assets/icons/menu.png; sourceTree = "<group>"; };
 		7076F75F7718D282629DABE0 /* Pods-qrcode.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-qrcode.release.xcconfig"; path = "Target Support Files/Pods-qrcode/Pods-qrcode.release.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = qrcode/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9FFDD3CB5D13B26706895360 /* Pods-qrcode-qrcodeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-qrcode-qrcodeTests.release.xcconfig"; path = "Target Support Files/Pods-qrcode-qrcodeTests/Pods-qrcode-qrcodeTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -55,7 +55,7 @@
 		D76DC75F95BE90DDF5B6356E /* Pods-qrcode-qrcodeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-qrcode-qrcodeTests.debug.xcconfig"; path = "Target Support Files/Pods-qrcode-qrcodeTests/Pods-qrcode-qrcodeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		EE0763445854E3CFE4679DB5 /* libPods-qrcode.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-qrcode.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F698FDE065BC43868A4E062D /* barcode-scanner.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "barcode-scanner.png"; path = "../assets/icons/barcode-scanner.png"; sourceTree = "<group>"; };
+		F698FDE065BC43868A4E062D /* barcode-scanner.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "barcode-scanner.png"; path = "../assets/icons/barcode-scanner.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,7 +172,6 @@
 				60058E42D7914C279DAF17A6 /* smartphone.png */,
 			);
 			name = Resources;
-			path = "";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

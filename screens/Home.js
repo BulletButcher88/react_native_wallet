@@ -94,7 +94,8 @@ const Home = () => {
                 width: 10,
                 borderRadius: 5,
                 backgroundColor: COLORS.red,
-              }} />
+              }}
+            />
           </TouchableOpacity>
         </View>
       </View>
@@ -147,36 +148,46 @@ const Home = () => {
     );
 
     const renderItem = ({item}) => (
-      <TouchableOpacity
-        style={{
-          marginBottom: SIZES.padding * 2,
-          width: 60,
-          alignItems: 'center',
-        }}
-        onPress={() => console.log(item.description)}>
-        <View
+      <View style={{marginBottom: SIZES.padding * 2}}>
+        <TouchableOpacity
           style={{
-            flex: 1,
-            height: 50,
-            width: 50,
-            marginBottom: 5,
-            borderRadius: 20,
-            backgroundColor: item.backgroundColor,
+            marginBottom: SIZES.padding * 2,
+            width: 60,
             alignItems: 'center',
-            justifyContent: 'center',
-          }}>
-          <Image
-            source={item.icon}
-            resizeMode="cover"
+          }}
+          onPress={() => console.log(item.description)}>
+          <View
             style={{
-              width: 25,
-              height: 25,
-              tintColor: COLORS.primary
-            }}
-          />
-        </View>
-      </TouchableOpacity>
-    );;
+              flex: 1,
+              height: 50,
+              width: 50,
+              marginBottom: 5,
+              borderRadius: 20,
+              backgroundColor: item.backgroundColor,
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}>
+            <Image
+              source={item.icon}
+              resizeMode="cover"
+              style={{
+                width: 25,
+                height: 25,
+                tintColor: COLORS.primary,
+              }}
+            />
+          </View>
+        </TouchableOpacity>
+        <Text
+          style={{
+            fontSize: 12,
+            color: COLORS.black,
+            fontWeight: '700',
+          }}>
+          {item.description}
+        </Text>
+      </View>
+    );
 
     return (
       <FlatList
@@ -188,7 +199,7 @@ const Home = () => {
         renderItem={renderItem}
         style={{marginTop: SIZES.padding * 2}}
       />
-    );;
+    );
   };
 
   const renderPromos = () => {
@@ -248,6 +259,7 @@ const Home = () => {
         keyExtractor={item => item.id}
         renderItem={renderItem}
         showsVerticalScrollIndicator={false}
+        ListEmptyComponent={<View style={{marginBottom: 80}} />}
       />
     );
   };

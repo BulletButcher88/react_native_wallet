@@ -1,12 +1,18 @@
 import React, {useState} from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Linking } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  Linking,
+  Image,
+} from 'react-native';
 
-import { RNCamera } from 'react-native-camera';
-import { COLORS } from '../constants';
+import {RNCamera} from 'react-native-camera';
+import {COLORS, icons} from '../constants';
 
 const Scan = () => {
-
-  const [barCodeScanned, setBarCodeScanned] = useState('')
+  const [barCodeScanned, setBarCodeScanned] = useState('');
   // const onSuccess = e => {
   //   console.log(e.data)
   //   Linking.openURL(e.data).catch(err =>
@@ -16,45 +22,59 @@ const Scan = () => {
 
   const renderHeader = () => {
     return (
-      <View style={{ flexDirection: 'row', marginTop: 50, paddingHorizontal: 20 }}>
+      <View
+        style={{flexDirection: 'row', marginTop: 50, paddingHorizontal: 20}}>
         <TouchableOpacity
           style={{
+            height: 40,
             width: 40,
+            backgroundColor: 'rgba(15,15,15,0.2)',
             alignItems: 'center',
             justifyContent: 'center',
+            borderRadius: 20,
+            borderColor: COLORS.white,
+            borderWidth: 1
           }}
-          onPress={() => console.log('need to add closing navigation.navigate("payment-page")')}
-        >
-          <Text style={{
-            fontSize: 30,
-            color: '#ddd',
-          }}>x</Text>
+          onPress={() => console.log('info Module')}>
+          <Image
+            source={icons.cancel}
+            resizeMode="contain"
+            style={{
+              height: 15,
+              width: 15,
+              tintColor: COLORS.white,
+            }}
+          />
         </TouchableOpacity>
 
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-          <Text style={{ color: "#ddd" }}>Scan for Payment</Text>
+        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+          <Text style={{color: '#ddd'}}>Scan for Payment</Text>
         </View>
-        <TouchableOpacity style={{
-          height: 40,
-          width: 40,
-          backgroundColor: 'rgba(15,15,15,0.2)',
-          alignItems: 'center',
-          justifyContent: 'center',
-          borderRadius: 10,
-        }}
-          onPress={() => console.log("info Module")}
-        >
-          <Text
+        <TouchableOpacity
+          style={{
+            height: 40,
+            width: 40,
+            backgroundColor: 'rgba(15,15,15,0.2)',
+            alignItems: 'center',
+            justifyContent: 'center',
+            borderRadius: 20,
+            borderColor: COLORS.white,
+            borderWidth: 1
+          }}
+          onPress={() => console.log('info Module')}>
+          <Image
+            source={icons.info}
+            resizeMode="contain"
             style={{
-              color: '#ddd',
-              fontSize: 20,
-              fontWeight: '700'
+              height: 15,
+              width: 15,
+              tintColor: COLORS.white,
             }}
-          >i</Text>
+          />
         </TouchableOpacity>
       </View>
-    )
-  }
+    );
+  };
 
   const renderScanFocus = () => {
     return (
@@ -63,32 +83,31 @@ const Scan = () => {
           flex: 1,
           alignItems: 'center',
           justifyContent: 'center',
-        }}
-      >
+        }}>
         <View
           style={{
-            marginTop: "-60%",
+            marginTop: '-60%',
             width: 250,
             height: 250,
             borderWidth: 2,
             borderColor: '#aaa',
             borderRadius: 18,
-            opacity: 0.6
-          }}
-        >
-         { barCodeScanned ?
-          <Text
-             style={{
-               fontSize: 17,
-                fontWeight: "700",
-                backgroundColor: COLORS.white
-            }}
-        >{ barCodeScanned }</Text> :
-      null }
+            opacity: 0.6,
+          }}>
+          {barCodeScanned ? (
+            <Text
+              style={{
+                fontSize: 17,
+                fontWeight: '700',
+                backgroundColor: COLORS.white,
+              }}>
+              {barCodeScanned}
+            </Text>
+          ) : null}
         </View>
       </View>
-    )
-  }
+    );
+  };
 
   const renderPaymentMethods = () => {
     return (
@@ -102,29 +121,29 @@ const Scan = () => {
           padding: 20,
           borderTopLeftRadius: 25,
           borderTopRightRadius: 25,
-          backgroundColor: '#ddd'
+          backgroundColor: COLORS.white,
         }}>
         <Text
           style={{
             fontSize: 17,
-            fontWeight: "700"
-          }}
-        >Payment Method</Text>
+            fontWeight: '700',
+          }}>
+          Payment Method
+        </Text>
         <View
           style={{
             flex: 1,
             flexDirection: 'row',
             alignItems: 'flex-start',
             justifyContent: 'space-around',
-            marginTop: 15
-          }}
-        >
+            marginTop: 15,
+          }}>
           <TouchableOpacity
             style={{
               flexDirection: 'row',
-              alignItems: 'center'
+              alignItems: 'center',
             }}
-            onPress={() => console.log("Phone Number")}
+            onPress={() => console.log('Phone Number')}
           >
             <View
               style={{
@@ -133,22 +152,23 @@ const Scan = () => {
                 backgroundColor: '#66aa',
                 alignItems: 'center',
                 justifyContent: 'center',
-                borderRadius: 10
-              }}
-            >
+                borderRadius: 10,
+              }}>
               <Text
                 style={{
-                  color: '#ddd'
-                }}
-              >ph</Text>
+                  color: '#ddd',
+                }}>
+                ph
+              </Text>
             </View>
             <Text
               style={{
                 fontSize: 14,
-                fontWeight: "700",
-                paddingLeft: 10
-              }}
-            >Phone Number</Text>
+                fontWeight: '700',
+                paddingLeft: 10,
+              }}>
+              Phone Number
+            </Text>
           </TouchableOpacity>
 
           <TouchableOpacity
@@ -156,7 +176,7 @@ const Scan = () => {
               flexDirection: 'row',
               alignItems: 'center',
             }}
-            onPress={() => console.log("Barcode")}
+            onPress={() => console.log('Barcode')}
           >
             <View
               style={{
@@ -165,31 +185,32 @@ const Scan = () => {
                 backgroundColor: '#66dd00',
                 alignItems: 'center',
                 justifyContent: 'center',
-                borderRadius: 10
-              }}
-            >
+                borderRadius: 10,
+              }}>
               <Text
                 style={{
-                  color: '#ddd'
-                }}
-              >bc</Text>
+                  color: '#ddd',
+                }}>
+                bc
+              </Text>
             </View>
             <Text
               style={{
                 fontSize: 14,
-                fontWeight: "700",
-                paddingLeft: 10
-              }}
-            >Barcode</Text>
+                fontWeight: '700',
+                paddingLeft: 10,
+              }}>
+              Barcode
+            </Text>
           </TouchableOpacity>
         </View>
       </View>
-    )
+    );
   };
 
   const onBarCodeRead = result => {
-    setBarCodeScanned(result.data)
-  }
+    setBarCodeScanned(result.data);
+  };
 
   return (
     <View style={styles.backgroundStyle}>
@@ -197,7 +218,7 @@ const Scan = () => {
         ref={ref => {
           this.camera = ref;
         }}
-        style={{ flex: 1, width: '100%' }}
+        style={{flex: 1, width: '100%'}}
         captureAudio={false}
         type={RNCamera.Constants.Type.back}
         flashMode={RNCamera.Constants.FlashMode.off}
@@ -241,4 +262,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Scan
+export default Scan;
