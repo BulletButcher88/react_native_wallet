@@ -9,6 +9,8 @@ import {
 } from 'react-native';
 
 import {RNCamera} from 'react-native-camera';
+import RNQRGenerator from 'rn-qr-generator';
+
 import {COLORS, icons} from '../constants';
 
 const Scan = ({navigation}) => {
