@@ -11,7 +11,7 @@ import {
 import {RNCamera} from 'react-native-camera';
 import {COLORS, icons} from '../constants';
 
-const Scan = () => {
+const Scan = ({navigation}) => {
   const [barCodeScanned, setBarCodeScanned] = useState('');
   // const onSuccess = e => {
   //   console.log(e.data)
@@ -26,39 +26,38 @@ const Scan = () => {
         style={{flexDirection: 'row', marginTop: 50, paddingHorizontal: 20}}>
         <TouchableOpacity
           style={{
-            height: 40,
-            width: 40,
-            backgroundColor: 'rgba(15,15,15,0.2)',
+            height: 30,
+            width: 30,
             alignItems: 'center',
             justifyContent: 'center',
-            borderRadius: 20,
-            borderColor: COLORS.white,
-            borderWidth: 1
           }}
-          onPress={() => console.log('info Module')}>
+          onPress={() => {
+            navigation.navigate('Home');
+            setBarCodeScanned('');
+          }}>
           <Image
             source={icons.cancel}
             resizeMode="contain"
             style={{
-              height: 15,
-              width: 15,
-              tintColor: COLORS.white,
+              height: 10,
+              width: 10,
+              tintColor: COLORS.lightGrey,
             }}
           />
         </TouchableOpacity>
 
         <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-          <Text style={{color: '#ddd'}}>Scan for Payment</Text>
+          <Text style={{color: COLORS.lightGrey}}>Scan</Text>
         </View>
         <TouchableOpacity
           style={{
-            height: 40,
-            width: 40,
+            height: 30,
+            width: 30,
             backgroundColor: 'rgba(15,15,15,0.2)',
             alignItems: 'center',
             justifyContent: 'center',
             borderRadius: 20,
-            borderColor: COLORS.white,
+            borderColor: COLORS.lightGrey,
             borderWidth: 1
           }}
           onPress={() => console.log('info Module')}>
@@ -66,9 +65,9 @@ const Scan = () => {
             source={icons.info}
             resizeMode="contain"
             style={{
-              height: 15,
-              width: 15,
-              tintColor: COLORS.white,
+              height: 10,
+              width: 10,
+              tintColor: COLORS.lightGrey,
             }}
           />
         </TouchableOpacity>
@@ -90,19 +89,28 @@ const Scan = () => {
             width: 250,
             height: 250,
             borderWidth: 2,
-            borderColor: '#aaa',
+            borderColor: COLORS.lightGrey,
             borderRadius: 18,
             opacity: 0.6,
+            justifyContent: 'center',
+            alignItems: 'center'
           }}>
           {barCodeScanned ? (
-            <Text
-              style={{
-                fontSize: 17,
-                fontWeight: '700',
-                backgroundColor: COLORS.white,
+            <View
+              style={{ 
+                backgroundColor: COLORS.darkGrey,
+                borderRadius: 10,}}
+            >
+             <Text
+                style={{
+                  color: COLORS.white,
+                  padding: 20,
+                  fontSize: 17,
+                  fontWeight: '700',
               }}>
               {barCodeScanned}
             </Text>
+            </View>
           ) : null}
         </View>
       </View>

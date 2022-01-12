@@ -10,31 +10,35 @@ import {
 
 import {COLORS, icons, SIZES, FONTS} from '../constants';
 
-const Home = () => {
+const HomeScreen = ({navigation}) => {
   const featuresData = [
     {
       id: 1,
       icon: icons.createBill,
       backgroundColor: COLORS.lightGreen,
       description: 'Create Bill',
+      screen: 'Bill',
     },
     {
       id: 2,
       icon: icons.addItems,
       backgroundColor: COLORS.lightPurple,
       description: 'List Items',
+      screen: 'Items',
     },
     {
       id: 3,
       icon: icons.wallet,
       backgroundColor: COLORS.lightRed,
       description: 'Your Wallet',
+      screen: 'Wallet',
     },
     {
       id: 4,
       icon: icons.addMoney,
       backgroundColor: COLORS.lightRed,
       description: 'Add Money',
+      screen: 'AddMoney',
     },
   ];
 
@@ -155,7 +159,7 @@ const Home = () => {
             width: 60,
             alignItems: 'center',
           }}
-          onPress={() => console.log(item.description)}>
+          onPress={() => navigation.navigate(`${item.screen}`)}>
           <View
             style={{
               flex: 1,
@@ -274,4 +278,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomeScreen;

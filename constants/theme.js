@@ -29,7 +29,7 @@ export const COLORS = {
 
   lightGrey: "#FCFBFC",
   grey: "#C1C3C5",
-  darkGrey: "#C3C6C7",
+  darkGrey: "#444",
 
   transparent: 'transparent',
 };
