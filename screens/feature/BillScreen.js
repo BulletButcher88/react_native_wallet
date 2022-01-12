@@ -12,6 +12,8 @@ import {
 } from 'react-native';
 import RNQRGenerator from 'rn-qr-generator';
 
+import BackButton from '../../components/BackButton';
+
 import {COLORS, icons, SIZES} from '../../constants';
 
 const BillScreen = ({navigation}) => {
@@ -101,7 +103,7 @@ const BillScreen = ({navigation}) => {
         alignItems: 'center',
         backgroundColor: COLORS.white,
       }}>
-      {renderBackButton()}
+      <BackButton navigation={navigation}/>
       <ScrollView>
         {renderQrCode()}
         <Text
