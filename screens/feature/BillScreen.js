@@ -96,11 +96,6 @@ const BillScreen = ({navigation}) => {
   };
 
   const list = () => {
-    const handleRemoveItem = (e) => {
-      const name = e.target.getAttribute("key")
-      setTheArray(theArray.filter(item => item.name !== name));
-     };
-
     const array = theArray.map((v, k) => (
       <View
         key={k}
@@ -134,7 +129,9 @@ const BillScreen = ({navigation}) => {
           {v[k]}
         </Text>
         <TouchableOpacity
-          onPress={handleRemoveItem}>
+          onPress={() => {
+            setTheArray(theArray.filter(obj => theArray[k] !== obj));
+          }}>
           <Image
             source={icons.cancel}
             style={{height: 10, width: 10, tintColor: COLORS.red, margin: 5}}
@@ -181,6 +178,7 @@ const BillScreen = ({navigation}) => {
             keyboardType="numeric"
           />
           {renderAddItem()}
+          <Text>{JSON.stringify(theArray)}</Text>
         </View>
       </ScrollView>
     </SafeAreaView>
