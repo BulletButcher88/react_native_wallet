@@ -97,11 +97,11 @@ const BillScreen = ({navigation}) => {
 
   const list = () => {
     const array = theArray.map((v, k) => (
-      <ScrollView>
-        <Text key={k} style={{color: COLORS.darkGrey}}>
+      <View style={{backgroundColor: COLORS.lightGrey, alignItems:'flex-end', padding:2}}>
+        <Text key={k} style={{color: COLORS.darkGrey, fontSize: 14}}>
           {v[k]}
         </Text>
-      </ScrollView>
+      </View>
     ));
     return array;
   };
@@ -114,12 +114,15 @@ const BillScreen = ({navigation}) => {
         alignItems: 'center',
       }}>
       <BackButton navigation={navigation} />
-      <ScrollView>
+      <ScrollView
+        showsHorizontalScrollIndicator={false}
+        showsVerticalScrollIndicator={false}>
         <Text
           style={{fontSize: 30, color: COLORS.grey, padding: SIZES.padding}}>
           QR Bill
         </Text>
         {renderQrCode()}
+        {list()}
         <View>
           <TextInput
             style={{
@@ -139,7 +142,6 @@ const BillScreen = ({navigation}) => {
             keyboardType="numeric"
           />
           {renderAddItem()}
-          {list()}
         </View>
       </ScrollView>
     </SafeAreaView>

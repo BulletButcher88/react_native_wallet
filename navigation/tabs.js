@@ -139,11 +139,11 @@ const Tabs = () => {
         options={{
           tabBarIcon: ({focused}) => (
             <Image
-              source={icons.barcode}
+              source={icons.qr}
               resizeMode="contain"
               style={{
-                width: 35,
-                height: 35,
+                width: 25,
+                height: 25,
                 tintColor: focused ? COLORS.white : COLORS.darkGrey,
               }}
             />
