@@ -16,7 +16,7 @@ const ItemsScreen = ({navigation}) => {
     <SafeAreaView
       style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
       <Text style={{fontSize: 100}}>🎫</Text>
-      <Text style={{fontSize: 30, padding: 20}}>Items Screeb Coming...</Text>
+      <Text style={{fontSize: 30, padding: 20}}>Items Coming...</Text>
       <BackButton navigation={navigation} />
     </SafeAreaView>
   );

@@ -16,6 +16,7 @@ const createBill = require('../assets/icons/create-bill.png');
 const wallet = require('../assets/icons/wallet.png');
 const addMoney = require('../assets/icons/icons8-add-dollar-50.png');
 const notifcation = require('../assets/icons/notification.png');
+const add = require('../assets/icons/icons8-add-48.png');
 
 export default {
   menu,
@@ -36,4 +37,5 @@ export default {
   wallet,
   addMoney,
   notifcation,
+  add,
 };

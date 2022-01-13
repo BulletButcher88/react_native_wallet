@@ -24,48 +24,22 @@ const BillScreen = ({navigation}) => {
 
   const [qrCode, setQrCode] = useState();
   const [totalAmount, onChangeTotalAmount] = useState(null);
-  const [form, setForm] = useState([]);
+  const [theArray, setTheArray] = useState([]);
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
     generateQr();
   }, [totalAmount]);
 
-  const renderBackButton = () => (
-    <TouchableOpacity
-      style={{
-        height: 30,
-        width: 30,
-        borderRadius: SIZES.radius / 1.5,
-        position: 'absolute',
-        top: 45,
-        left: 10,
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}
-      onPress={() => {
-        navigation.navigate('Home');
-        setQrCode(null);
-      }}>
-      <Image
-        source={icons.back}
-        style={{
-          height: 20,
-          width: 20,
-          tintColor: COLORS.black,
-        }}
-      />
-    </TouchableOpacity>
-  );
-
   const generateQr = () => {
     const dataString = {
       items: [
         {
-          1: "dish", 
+          1: 'item1 name',
           amount: 20,
         },
         {
-          2: "banana", 
+          2: 'item2 name',
           amount: 30,
         },
       ],
@@ -76,6 +50,8 @@ const BillScreen = ({navigation}) => {
       value: JSON.stringify(dataString),
       height: 500,
       width: 500,
+      backgroundColor: COLORS.darkGrey,
+      color: '#fff',
     })
       .then(response => {
         const {uri, width, height, base64} = response;
@@ -95,21 +71,55 @@ const BillScreen = ({navigation}) => {
     );
   };
 
+  const renderAddItem = () => {
+    return (
+      <TouchableOpacity
+        style={{
+          height: 40,
+          width: 40,
+          borderRadius: 20,
+        }}
+        onPress={() => {
+          setCount(count + 1);
+          setTheArray(oldArray => [...oldArray, {[count]: totalAmount}]);
+        }}>
+        <Image
+          source={icons.add}
+          style={{
+            height: 40,
+            width: 40,
+            borderRadius: 20,
+          }}
+        />
+      </TouchableOpacity>
+    );
+  };
+
+  const list = () => {
+    const array = theArray.map((v, k) => (
+      <ScrollView>
+        <Text key={k} style={{color: COLORS.darkGrey}}>
+          {v[k]}
+        </Text>
+      </ScrollView>
+    ));
+    return array;
+  };
+
   return (
     <SafeAreaView
       style={{
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: COLORS.white,
       }}>
-      <BackButton navigation={navigation}/>
+      <BackButton navigation={navigation} />
       <ScrollView>
-        {renderQrCode()}
         <Text
           style={{fontSize: 30, color: COLORS.grey, padding: SIZES.padding}}>
           QR Bill
         </Text>
+        {renderQrCode()}
         <View>
           <TextInput
             style={{
@@ -128,6 +138,8 @@ const BillScreen = ({navigation}) => {
             placeholder="$ Amount"
             keyboardType="numeric"
           />
+          {renderAddItem()}
+          {list()}
         </View>
       </ScrollView>
     </SafeAreaView>
