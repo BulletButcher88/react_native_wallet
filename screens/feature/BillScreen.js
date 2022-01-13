@@ -96,11 +96,50 @@ const BillScreen = ({navigation}) => {
   };
 
   const list = () => {
+    const handleRemoveItem = (e) => {
+      const name = e.target.getAttribute("key")
+      setTheArray(theArray.filter(item => item.name !== name));
+     };
+
     const array = theArray.map((v, k) => (
-      <View style={{backgroundColor: COLORS.lightGrey, alignItems:'flex-end', padding:2}}>
-        <Text key={k} style={{color: COLORS.darkGrey, fontSize: 14}}>
+      <View
+        key={k}
+        style={{
+          backgroundColor: COLORS.lightGrey,
+          padding: 2,
+          flex: 1,
+          flexDirection: 'row',
+          justifyContent: 'flex-end',
+        }}>
+        <View
+          key={k}
+          style={{width: 14, justifyContent: 'center', alignItems: 'center'}}>
+          <Text
+            style={{
+              color: COLORS.darkGrey,
+              fontSize: 14,
+              minWidth: 60,
+              paddingRight: 10,
+            }}>
+            $
+          </Text>
+        </View>
+        <Text
+          style={{
+            color: COLORS.darkGrey,
+            fontSize: 14,
+            minWidth: 60,
+            paddingRight: 10,
+          }}>
           {v[k]}
         </Text>
+        <TouchableOpacity
+          onPress={handleRemoveItem}>
+          <Image
+            source={icons.cancel}
+            style={{height: 10, width: 10, tintColor: COLORS.red, margin: 5}}
+          />
+        </TouchableOpacity>
       </View>
     ));
     return array;
