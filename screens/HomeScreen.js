@@ -141,16 +141,16 @@ const HomeScreen = ({navigation}) => {
     </View>
   );
 
-  const renderFeatures = () => {
-    const Header = () => (
-      <View
-        style={{
-          marginBottom: SIZES.padding * 2,
-        }}>
-        <Text style={{fontSize: 20}}>Features</Text>
-      </View>
-    );
+  const Header = () => (
+    <View
+      style={{
+        marginBottom: SIZES.padding * 2,
+      }}>
+      <Text style={{fontSize: 20}}>Features</Text>
+    </View>
+  );
 
+  const renderFeatures = () => {
     const renderItem = ({item}) => (
       <View style={{marginBottom: SIZES.padding * 2}}>
         <TouchableOpacity

@@ -17,37 +17,19 @@ import BackButton from '../../components/BackButton';
 import {COLORS, icons, SIZES} from '../../constants';
 
 const BillScreen = ({navigation}) => {
-  const obj = {
-    id: 'text',
-    instruction: '1',
-  };
-
   const [qrCode, setQrCode] = useState();
   const [totalAmount, onChangeTotalAmount] = useState(null);
   const [theArray, setTheArray] = useState([]);
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(null);
+  const [description, onChangeDescription] = useState();
 
   useEffect(() => {
     generateQr();
-  }, [totalAmount]);
+  }, [theArray]);
 
   const generateQr = () => {
-    const dataString = {
-      items: [
-        {
-          1: 'item1 name',
-          amount: 20,
-        },
-        {
-          2: 'item2 name',
-          amount: 30,
-        },
-      ],
-      total: totalAmount,
-    };
-
     RNQRGenerator.generate({
-      value: JSON.stringify(dataString),
+      value: JSON.stringify(theArray),
       height: 500,
       width: 500,
       backgroundColor: COLORS.darkGrey,
@@ -72,6 +54,12 @@ const BillScreen = ({navigation}) => {
   };
 
   const renderAddItem = () => {
+    const obj = {
+      id: theArray.length + 1,
+      price: totalAmount,
+      description: description,
+    };
+
     return (
       <TouchableOpacity
         style={{
@@ -81,7 +69,9 @@ const BillScreen = ({navigation}) => {
         }}
         onPress={() => {
           setCount(count + 1);
-          setTheArray(oldArray => [...oldArray, {[count]: totalAmount}]);
+          setTheArray(oldArray => [...oldArray, obj]);
+          onChangeTotalAmount(null);
+          onChangeDescription(null);
         }}>
         <Image
           source={icons.add}
@@ -101,14 +91,38 @@ const BillScreen = ({navigation}) => {
         key={k}
         style={{
           backgroundColor: COLORS.lightGrey,
-          padding: 2,
+          padding: 5,
           flex: 1,
           flexDirection: 'row',
           justifyContent: 'flex-end',
+          margin: 2,
         }}>
         <View
           key={k}
-          style={{width: 14, justifyContent: 'center', alignItems: 'center'}}>
+          style={{
+            flex: 5,
+            justifyContent: 'space-evenly',
+            alignItems: 'center',
+            flexDirection: 'row',
+          }}>
+          <Text>{v.description}</Text>
+        </View>
+        <View
+          style={{
+            flex: 1,
+            width: 0,
+            alignItems: 'center',
+            justifyContent: 'center',
+            flexDirection: 'row',
+          }}>
+          <Text
+            style={{
+              color: COLORS.grey,
+              fontSize: SIZES.body3,
+              minWidth: 20,
+            }}>
+            $
+          </Text>
           <Text
             style={{
               color: COLORS.darkGrey,
@@ -116,21 +130,14 @@ const BillScreen = ({navigation}) => {
               minWidth: 60,
               paddingRight: 10,
             }}>
-            $
+            {v.price}
           </Text>
         </View>
-        <Text
-          style={{
-            color: COLORS.darkGrey,
-            fontSize: 14,
-            minWidth: 60,
-            paddingRight: 10,
-          }}>
-          {v[k]}
-        </Text>
+
         <TouchableOpacity
           onPress={() => {
             setTheArray(theArray.filter(obj => theArray[k] !== obj));
+            generateQr();
           }}>
           <Image
             source={icons.cancel}
@@ -159,7 +166,15 @@ const BillScreen = ({navigation}) => {
         </Text>
         {renderQrCode()}
         {list()}
-        <View>
+        <View
+          style={{
+            flex: 1,
+            flexDirection: 'row',
+            justifyContent: 'space-around',
+            alignItems: 'center',
+            marginVertical: 20,
+          }}>
+          {renderAddItem()}
           <TextInput
             style={{
               height: 33,
@@ -170,15 +185,34 @@ const BillScreen = ({navigation}) => {
               borderColor: COLORS.grey,
               justifyContent: 'center',
               textAlign: 'center',
+              fontSize: SIZES.body3,
+            }}
+            placeholderTextColor={COLORS.darkGrey}
+            onChangeText={onChangeDescription}
+            value={description}
+            placeholder="item"
+            keyboardType='default'
+            placeholderTextColor={COLORS.grey}
+          />
+          <TextInput
+            style={{
+              height: 33,
+              width: 120,
+              backgroundColor: COLORS.lightGrey,
+              borderRadius: 5,
+              borderWidth: 1,
+              borderColor: COLORS.grey,
+              justifyContent: 'center',
+              textAlign: 'center',
+              fontSize: SIZES.body3,
             }}
             placeholderTextColor={COLORS.darkGrey}
             onChangeText={onChangeTotalAmount}
             value={totalAmount}
-            placeholder="$ Amount"
+            placeholder="$ Price"
             keyboardType="numeric"
+            placeholderTextColor={COLORS.grey}
           />
-          {renderAddItem()}
-          <Text>{JSON.stringify(theArray)}</Text>
         </View>
       </ScrollView>
     </SafeAreaView>
