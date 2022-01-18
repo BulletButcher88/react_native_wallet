@@ -7,7 +7,7 @@ import {
   Image,
   TouchableOpacity,
 } from 'react-native';
-import BackButton from '../../components/BackButton';
+import BackButton from '../components/BackButton';
 
 import {COLORS, icons, SIZES} from '../../constants';
 

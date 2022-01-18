@@ -115,6 +115,7 @@ const Tabs = () => {
         },
       }}
       tabBar={props => <CustomTabBar props={props} />}>
+      
       <Tab.Screen
         name="Home"
         component={HomeScreen}

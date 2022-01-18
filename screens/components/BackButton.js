@@ -1,17 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import {
-  View,
-  Text,
-  SafeAreaView,
-  TextInput,
   Image,
   TouchableOpacity,
-  Button,
-  ScrollView,
-  StatusBar,
 } from 'react-native';
 
-import {COLORS, icons, SIZES} from '../constants/index';
+import {COLORS, icons, SIZES} from '../../constants';
 
 const BackButton = ({navigation}) => {
   return (
@@ -27,7 +20,7 @@ const BackButton = ({navigation}) => {
         justifyContent: 'center',
       }}
       onPress={() => {
-        navigation.navigate('Home');
+        navigation.navigate("Home");
       }}>
       <Image
         source={icons.back}

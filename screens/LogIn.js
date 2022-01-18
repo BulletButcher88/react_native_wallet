@@ -235,7 +235,7 @@ const LogIn = ({ navigation }) => {
             alignItems: 'center',
             justifyContent: 'center'
           }}
-          onPress={() => navigation.navigate("Home")}
+          onPress={() => navigation.navigate("Tabs")}
         >
           <Text
             style={{
